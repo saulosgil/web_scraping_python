@@ -1,6 +1,6 @@
 
 '''
-First scraping test - 
+Scraping test - 
 Page - http://pythonscraping.com/pages/page1.html
 '''
 

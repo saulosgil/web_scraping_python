@@ -1,39 +1,42 @@
 '''
-The modulo BeautifulSoup4 (BS4) is commonly used for Web-Scraping.
-Complete instructions to install are in http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+O módulo BeautifulSoup4 (BS4) é amplamente usado para Web-Scraping.
+Instruções completas para instalação podem ser acessadas no site:
+
+http://www.crummy.com/software/BeautifulSoup/bs4/doc/
 '''
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-# Getting url
+# Pegando o url
 html = urlopen(url='http://pythonscraping.com/pages/page1.html')
 
-# bs object
+# criando um bs objeto
 bs = BeautifulSoup(html.read(), 'html.parser')
-print(bs) # print of the bs object (that is HTML) 
-print(bs.h1) # print of the tag h1 of the bs object
-print(bs.head) # print of the tag head of the bs object 
-print(bs.div) # print of the tag div of the bs object 
+print(bs) # imprime o bs objeto (que é HTML) 
+print(bs.h1) # imprime a tag h1 do bs objecto
+print(bs.head) # imprime a tag head do bs objecto
+print(bs.div) # imprime a tag div do bs objecto
 
 '''
-Observe that extracted tag is nested in 2 levels (html -> body -> h1), but  it is
-possible to acess h1 directly.
+Repare que a tag extraida esta aninhada em 2 niveis (html -> body -> h1), contudo
+é possivel acessar a tag h1 diretamente.
 '''
 bs
 bs.html.body.h1
 bs.body.h1
 bs.h1
 
-# OTHERs PARSER - lxml and html5lib
+# Outros PARSER - lxml and html5lib
 '''
-It is necessary to install:
+Precisam estar instalados:
 
 $ pip install lxml
 $ pip install html5lib
 
-These parser are more flexible for unformmated tags (e.g., tags without closed)
+Esses parser são mais flexiveis e lidam melhor com tags mal formatadas como, por exemplo, 
+tags sem fechamento, taga aninhadas indevidamente e corpos ausentes.
 '''
-# bs object using lxml and html5lib
+# bs objeto usando lxml and html5lib
 bs = BeautifulSoup(html.read(), 'lxml')
 bs = BeautifulSoup(html.read(), 'html5lib')
 
